@@ -5,6 +5,7 @@ EID/CSID: SCL346
 
 
 *** Notes ***
+usage: java AES option keyFile inputFile
 Implementation of AES-128 commercial block cipher algorithm:
 Given inputFile of a variable number of 32 hex character lines (128-bits) and keyFile of 32 hex characters, perform AES operations.
 If e option is provided, then encryption is done and the cipherText is output to a new file called inputFile.enc.
