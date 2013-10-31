@@ -126,9 +126,9 @@ public class AES
 
 		// continue reading in lines to encrypt/decrypt if they exist
 		int count = 0; 				// count of number of lines encrypted/decrypted
+		boolean first = true;
 		while ((line = inputReader.readLine()) != null)
 		{
-			
 			boolean validHex = true;								// indicates whether the line has valid hex characters
 			/* check for a valid line of 32 hex characters, pad if shorter than 32 */
 			if (line.length() > 32)
@@ -216,7 +216,10 @@ public class AES
 				printByteArray(e.getCipherTemp());
 				
 				// output completed encryption into encryption file
+				if (!first) bw.newLine();
+				first = false;
 				writeTextFile(bw, e.getCipherTemp());
+				
 				
 			}
 			
@@ -268,7 +271,9 @@ public class AES
 				printByteArray(d.getPlainTemp());
 				
 				// output completed encryption into encryption file
-				writeTextFile(bw, d.getPlainTemp());			
+				if (!first) bw.newLine();
+				first = false;
+				writeTextFile(bw, d.getPlainTemp());
 			}
 			count++;
 		}
@@ -296,7 +301,6 @@ public class AES
 				bw.write(s, 0, 2);
 			}
 		}
-		bw.newLine();
 	}
 
 	/* print starting array after validation has been completed */
