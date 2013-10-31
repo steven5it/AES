@@ -336,10 +336,19 @@ public class AES
 
 	/* Performs validation of command line arguments */
 	private static void validateArgs(String[] args) {
+		
 		if (args.length != 3)
+		{
 			System.err.println("Incorrect number of arguments, usage: java AES option keyFile inputFile");
+			System.exit(-1);
+		}
+			
 		if (args[0].length() != 1 || (args[0].charAt(0) != 'e' && args[0].charAt(0) != 'd'))
+		{
 			System.err.println("first argument (option) must be e or d");
+			System.exit(-1);
+		}
+			
 	}
 
 	public static int hex2decimal (char hexChar)
