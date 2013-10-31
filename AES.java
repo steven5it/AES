@@ -251,12 +251,12 @@ public class AES
 						d.printPlainTemp();
 					}
 					
-					/* invMix (above), invSubBytes, invShiftRows, addRound */
-					System.out.println("After invSubBytes:");
-					d.invSubBytes(s);
-					d.printPlainTemp();
+					/* invMix (above), invShiftRows, invSubBytes, addRound */
 					System.out.println("After invShiftRows:");
 					d.invShiftRows();
+					d.printPlainTemp();
+					System.out.println("After invSubBytes:");
+					d.invSubBytes(s);
 					d.printPlainTemp();
 					System.out.println("After addRoundKey(" + decRound + "):");
 					d.addRoundKey(decRound,  key.getExpandedKey());
